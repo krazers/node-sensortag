@@ -13,7 +13,7 @@ Node.js lib for the [TI SensorTag](http://www.ti.com/tool/cc2541dk-sensor) and [
 ## Install
 
 ```sh
-npm install sensortag
+npm install https://github.com/yagitsawa/node-sensortag.git
 ```
 
 ## Examples
@@ -320,6 +320,24 @@ sensorTag.notifyLuxometer(callback(error));
 sensorTag.unnotifyLuxometer(callback(error));
 
 sensorTag.on('luxometerChange', callback(lux));
+```
+
+### Battery Level (CC2650 only)
+
+#### Read
+
+```javascript
+sensorTag.readBatteryLevel(callback(error, batteryLevel));
+```
+
+#### Notify/Unnotify
+
+```javascript
+sensorTag.notifyBatteryLevel(callback(error));
+
+sensorTag.unnotifyBatteryLevel(callback(error));
+
+sensorTag.on('batteryLevelChange', callback(batteryLevel));
 ```
 
 ### Simple Key
