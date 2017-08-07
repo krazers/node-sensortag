@@ -379,28 +379,6 @@ SensorTag.discover(function(sensorTag) {
               console.log('disableLuxometer');
               sensorTag.disableLuxometer(callback);
             },
-            function(callback) {
-              if (USE_READ) {
-                console.log('readBatteryLevel');
-                sensorTag.readBatteryLevel(function(error, batteryLevel) {
-                  console.log('\tbatteryLevel = %d', batteryLevel.toFixed(1));
-
-                  callback();
-                });
-              } else {
-                sensorTag.on('batteryLevelChange', function(batteryLevel) {
-                  console.log('\tbatteryLevel = %d', batteryLevel.toFixed(1));
-                });
-
-                console.log('notifyBatteryLevel');
-                sensorTag.notifyBatteryLevel(function(error) {
-                  setTimeout(function() {
-                    console.log('unnotifyBatteryLevel');
-                    sensorTag.unnotifyBatteryLevel(callback);
-                  }, 5000);
-                });
-              }
-            },
             function() {
               callback();
             }
